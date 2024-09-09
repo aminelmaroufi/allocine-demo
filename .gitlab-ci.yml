@@ -1,0 +1,63 @@
+default:
+  image: node:latest
+
+variables:
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  CYPRESS_VIDEO_FOLDER: "$CI_PROJECT_DIR/videos"
+  CYPRESS_baseUrl: "http://localhost:3000"
+
+stages:
+  - build
+  - test
+
+build_app:
+  stage: build
+  only:
+    - master
+  image: node:18-alpine
+  script:
+    - npm ci --prefer-offline
+    - CI=false npm run build
+    - echo "Build successfully!"
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build
+
+unit-tests:
+  image: node:latest
+  stage: test
+  only:
+    - master
+  before_script:
+    - npm install
+  script:
+    - npm run test:ci
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  artifacts:
+    paths:
+      - coverage/
+    when: always
+    reports:
+      junit:
+        - junit.xml
+
+e2e_tests:
+  image: cypress/browsers:node18.12.0-chrome107
+  only:
+    - master
+  stage: test
+  script:
+    - npm ci --prefer-offline
+    - npm install -g serve
+    - npm i -g wait-on
+    - serve -s build &
+    - wait-on http://localhost:3000
+    - npm run e2e
+  artifacts:
+    when: always
+    paths:
+      - test-results.xml
+      - cypress/screenshots
+    reports:
+      junit: test-results.xml
