@@ -11,7 +11,6 @@ export function* fetchMoviesSaga(action: any) {
     if (action.params.newFilter) {
       yield put({ type: ActionTypes.RESET_COLLECTION });
     }
-
     let response: AxiosResponse = yield call(getMovies, action.params);
     const data = response.data;
 

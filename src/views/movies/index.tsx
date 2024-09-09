@@ -10,6 +10,7 @@ import { getMovies } from "../../redux/actions";
 import { RootState } from "../../redux/reducers";
 import { IFilter, IMovie } from "../../models";
 import { hoverFadeIn } from "../../styles/animation";
+import { resetMovies } from "../../redux/actions/movies";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,11 @@ const MoviesPage = () => {
   const previousFilter = useRef(filter); // Store the previous filter
 
   useEffect(() => {
+    dispatch(resetMovies());
+  }, []);
+
+  useEffect(() => {
+    console.log("useEffect called in MoviesPage");
     // Determine if the filter has changed, and set newFilter accordingly
     const newFilter = filter !== previousFilter.current;
     const params: IFilter = {

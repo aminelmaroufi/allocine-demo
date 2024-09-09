@@ -9,7 +9,7 @@ import configureAppStore from "./redux/store";
 import errorInterceptor from "./utils/interceptors/error";
 
 export const store = configureAppStore();
-errorInterceptor(store);
+errorInterceptor();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -3,9 +3,5 @@ import watchMoviesRequest from "./movie";
 import watchSeriesRequest from "./serie";
 
 export default function* rootSaga() {
-  yield all([
-    fork(watchMoviesRequest),
-    fork(watchMoviesRequest),
-    fork(watchSeriesRequest),
-  ]);
+  yield all([fork(watchMoviesRequest), fork(watchSeriesRequest)]);
 }

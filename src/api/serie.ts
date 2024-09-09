@@ -4,9 +4,13 @@ import adapter from "../utils/adapter";
 
 export let getSeries = (params: IFilter) => {
   return adapter
-    .get(
-      `/tv/${params.type}?api_key=${API_KEY}&page=${params.page}&language=en-US`
-    )
+    .get(`/tv/${params.type}`, {
+      params: {
+        api_key: API_KEY,
+        page: params.page,
+        language: "en-US",
+      },
+    })
     .catch((err) => {
       let error: any;
       if (typeof err === "string") {

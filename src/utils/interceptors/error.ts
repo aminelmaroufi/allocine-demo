@@ -1,30 +1,30 @@
-import { browserHistory } from "../../redux/reducers/history";
-import ActionTypes from "../../utils/actionTypes";
 import adapter from "../adapter";
 
 const REACT_APP_NODE_ENV = process.env.NODE_ENV;
 
-const errorInterceptor = (store: any) => {
+const errorInterceptor = () => {
   adapter.interceptors.response.use(
     (response) => response,
     (error) => {
-      if (!error.response) {
-        return browserHistory.push("/500");
-      } else if (error.response && error.response.status === 500) {
-        //Unauthorized
-        //redirect to 500 page
-        return browserHistory.push("/500");
-      } else {
-        //dispatch your error in a more user friendly manner
-        if (REACT_APP_NODE_ENV !== "production") {
-          //easier debugging
-          console.group("Error");
-          console.log(error);
-          console.groupEnd();
-        }
-        return error.response;
+      // if (!error.response) {
+      //   window.location.href = "/500";
+      //   return Promise.reject(error);
+      // }
+      // else if (error.response && error.response.status === 500) {
+      //   window.location.href = "/500";
+      //   return Promise.reject(error);
+      // }
+      // else
+      // {
+      if (REACT_APP_NODE_ENV !== "production") {
+        console.group("Error");
+        console.log(error);
+        console.groupEnd();
       }
+      //   return Promise.reject(error.response);
+      // }
     }
   );
 };
+
 export default errorInterceptor;

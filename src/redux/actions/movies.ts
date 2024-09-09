@@ -7,6 +7,10 @@ export const getMovies = (params: IFilter) => ({
   params,
 });
 
+export const resetMovies = () => ({
+  type: ActionTypes.RESET_COLLECTION,
+});
+
 //Get selected movie's details
 export const getMovieDetails = (id: string) => ({
   type: ActionTypes.SELECT_MOVIE,
