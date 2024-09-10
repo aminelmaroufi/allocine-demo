@@ -1,5 +1,3 @@
-// cypress/integration/header.spec.js
-
 describe("Header Component", () => {
   beforeEach(() => {
     cy.visit("/"); // Start at the home page

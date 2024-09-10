@@ -13,10 +13,23 @@ const Filter: React.FC<FilterProps> = ({ filter, setFilter, component }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", gap: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        gap: { xs: 1, md: 2 },
+        alignItems: "center",
+        overflowX: "auto",
+        padding: { xs: "0 16px", md: 0 },
+      }}
+    >
       <Button
         variant={filter === "popular" ? "contained" : "outlined"}
         onClick={() => handleFilterChange("popular")}
+        sx={{
+          flexShrink: 0,
+          marginBottom: { xs: 1, md: 0 },
+        }}
       >
         Popular
       </Button>
@@ -24,6 +37,10 @@ const Filter: React.FC<FilterProps> = ({ filter, setFilter, component }) => {
         <Button
           variant={filter === "on_the_air" ? "contained" : "outlined"}
           onClick={() => handleFilterChange("on_the_air")}
+          sx={{
+            flexShrink: 0,
+            marginBottom: { xs: 1, md: 0 },
+          }}
         >
           On the Air
         </Button>
@@ -32,6 +49,10 @@ const Filter: React.FC<FilterProps> = ({ filter, setFilter, component }) => {
         <Button
           variant={filter === "now_playing" ? "contained" : "outlined"}
           onClick={() => handleFilterChange("now_playing")}
+          sx={{
+            flexShrink: 0,
+            marginBottom: { xs: 1, md: 0 },
+          }}
         >
           Now Playing
         </Button>
@@ -39,6 +60,10 @@ const Filter: React.FC<FilterProps> = ({ filter, setFilter, component }) => {
       <Button
         variant={filter === "top_rated" ? "contained" : "outlined"}
         onClick={() => handleFilterChange("top_rated")}
+        sx={{
+          flexShrink: 0,
+          marginBottom: { xs: 1, md: 0 },
+        }}
       >
         Top Rated
       </Button>

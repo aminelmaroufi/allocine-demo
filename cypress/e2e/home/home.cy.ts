@@ -1,8 +1,6 @@
-// cypress/integration/homepage.spec.js
-
 describe("HomePage", () => {
   beforeEach(() => {
-    cy.visit("/"); // Assuming your app is served at the root URL
+    cy.visit("/");
   });
 
   // Utility function to wait for typing animation

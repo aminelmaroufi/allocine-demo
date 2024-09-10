@@ -1,3 +1,4 @@
+// MediaItem.tsx
 import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { IMAGE_BASE_URL } from "../../config";
@@ -21,9 +22,11 @@ const Item: React.FC<{ item: IMediaItem }> = ({ item }) => {
     >
       <CardMedia
         component="img"
-        height="300"
         image={`${IMAGE_BASE_URL}${item.poster_path}`}
         alt={item.title || item.name}
+        sx={{
+          height: { xs: 200, md: 300 }, // Adjusted height for mobile devices
+        }}
       />
       <CardContent>
         <Typography
@@ -32,7 +35,7 @@ const Item: React.FC<{ item: IMediaItem }> = ({ item }) => {
           sx={{
             textAlign: "center",
             fontWeight: "bold",
-            fontSize: { xs: "1rem" },
+            fontSize: { xs: "1rem", md: "1.25rem" }, // Adjusted font size for mobile devices
           }}
         >
           {item.title || item.name}

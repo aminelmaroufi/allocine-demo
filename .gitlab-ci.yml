@@ -7,22 +7,21 @@ variables:
   CYPRESS_baseUrl: "http://localhost:3000"
 
 stages:
-  # - build
+  - build
   - test
 
-# build_app:
-#   stage: build
-#   only:
-#     - master
-#   image: node:18-alpine
-#   script:
-#     - npm ci --prefer-offline
-#     - CI=false npm run build
-#     - echo "Build successfully!"
-#   artifacts:
-#     expire_in: 1 hour
-#     paths:
-#       - build
+build_app:
+  stage: build
+  only:
+    - master
+  script:
+    - npm ci --prefer-offline
+    - CI=false npm run build
+    - echo "Build successfully!"
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build
 
 unit-tests:
   image: node:latest

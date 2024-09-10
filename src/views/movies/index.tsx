@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Typography, Container, Box, Button, Grid2 } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import Item from "../../components/Media/Item";
 import Filter from "../../components/Filter/Filter";
 import TotalCount from "../../components/Filter/TotalCount";
@@ -74,6 +73,7 @@ const MoviesPage = () => {
           color="primary"
           gutterBottom
           cy-data="chart-title"
+          fontSize={{ xs: "30px", lg: "40px" }}
           sx={{ fontWeight: "bold" }}
         >
           Movies {">"} {filter.replace(/_/g, " ").toUpperCase()}
@@ -84,6 +84,7 @@ const MoviesPage = () => {
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",
             alignItems: "center",
             mb: 2,
@@ -98,9 +99,10 @@ const MoviesPage = () => {
         <Grid2 container spacing={2}>
           {movies.map((movie, index) => (
             <Grid2
-              size={2.4}
+              size={[6, 3, 3, 2.4]}
               key={index}
               onClick={() => handleMovieClick(movie)}
+              sx={{ cursor: "pointer" }}
             >
               <Item item={movie} />
             </Grid2>
@@ -130,6 +132,7 @@ const MoviesPage = () => {
               borderRadius: "20px",
               padding: "10px 20px",
               fontWeight: "bold",
+              width: { xs: "80%", md: "auto" }, // Adjusted width for mobile
             }}
           >
             Load More

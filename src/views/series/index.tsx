@@ -1,3 +1,4 @@
+// SeriesPage.tsx
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Typography, Container, Box, Button, Grid2 } from "@mui/material";
@@ -66,6 +67,7 @@ const SeriesPage = () => {
           color="primary"
           gutterBottom
           cy-data="chart-title"
+          fontSize={{ xs: "30px", lg: "40px" }}
           sx={{ fontWeight: "bold" }}
         >
           Series {">"} {filter.replace(/_/g, " ").toUpperCase()}
@@ -75,6 +77,7 @@ const SeriesPage = () => {
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",
             alignItems: "center",
             mb: 2,
@@ -88,9 +91,10 @@ const SeriesPage = () => {
         <Grid2 container spacing={2}>
           {series.map((serie: any, index) => (
             <Grid2
-              size={2.4}
+              size={[6, 3, 3, 2.4]}
               key={index}
               onClick={() => handleSerieClick(serie)}
+              sx={{ cursor: "pointer" }}
             >
               <Item item={serie} />
             </Grid2>
@@ -119,6 +123,7 @@ const SeriesPage = () => {
               borderRadius: "20px",
               padding: "10px 20px",
               fontWeight: "bold",
+              width: { xs: "80%", md: "auto" },
             }}
           >
             Load More
