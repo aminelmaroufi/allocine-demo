@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_KEY, baseURL } from "../config";
+import { baseURL } from "../config";
 
 const adapter = axios.create({
   baseURL,
@@ -7,7 +7,7 @@ const adapter = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: "Bearer " + API_KEY,
+    Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
   },
 });
 
