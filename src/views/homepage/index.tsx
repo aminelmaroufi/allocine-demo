@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Typography, Button, Box, Container } from "@mui/material";
-import { MovieOutlined, TvOutlined, WavingHand } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Typography, Button, Box, Container } from '@mui/material';
+import { MovieOutlined, TvOutlined, WavingHand } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import {
   waveAnimation,
   typingAnimation,
@@ -9,7 +9,7 @@ import {
   fadeIn,
   pulse,
   hoverFadeIn,
-} from "../../../styles/animation";
+} from 'src/styles/animation';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -31,16 +31,16 @@ const HomePage = () => {
   return (
     <Container
       maxWidth="md"
-      sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+      sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           flexGrow: 1,
-          textAlign: "center",
+          textAlign: 'center',
           padding: { xs: 2, md: 4 },
         }}
       >
@@ -50,14 +50,14 @@ const HomePage = () => {
           component="h1"
           gutterBottom
           sx={{
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             gap: 2,
-            marginBottom: "60px",
-            fontSize: { xs: "1.7rem", md: "3rem" },
-            overflow: "hidden",
-            whiteSpace: { xs: "normal", md: "nowrap" },
-            borderRight: "2px solid",
+            marginBottom: '60px',
+            fontSize: { xs: '1.7rem', md: '3rem' },
+            overflow: 'hidden',
+            whiteSpace: { xs: 'normal', md: 'nowrap' },
+            borderRight: '2px solid',
             opacity: 0, // Start with 0 opacity
             ...(showText && {
               animation: `${typingAnimation} 3s steps(40, end), ${colorTransition} 1s 3s forwards, ${fadeIn} 0.5s forwards`,
@@ -65,7 +65,7 @@ const HomePage = () => {
           }}
         >
           <span>
-            Hello{" "}
+            Hello{' '}
             <WavingHand sx={{ animation: `${waveAnimation} 2s infinite` }} />,
             what do you want to watch today?
           </span>
@@ -73,38 +73,38 @@ const HomePage = () => {
 
         <Box
           sx={{
-            display: "flex",
+            display: 'flex',
             gap: 4,
             mt: 4,
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: "center",
-            justifyContent: "center",
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Button
             id="moviesBtnId"
             variant="contained"
-            onClick={() => navigate("/movies")}
+            onClick={() => navigate('/movies')}
             sx={{
-              backgroundColor: "#e50914",
-              color: "white",
-              margin: { xs: "10px 0", md: "40px" },
-              "&:hover": {
-                backgroundColor: "#b20710",
+              backgroundColor: '#e50914',
+              color: 'white',
+              margin: { xs: '10px 0', md: '40px' },
+              '&:hover': {
+                backgroundColor: '#b20710',
                 animation: `${hoverFadeIn} 0.3s forwards`,
               },
-              width: { xs: "160%", md: "200px" },
-              height: { xs: "180px", md: "200px" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: { xs: "1rem", md: "2rem" },
-              borderRadius: "10px",
+              width: { xs: '160%', md: '200px' },
+              height: { xs: '180px', md: '200px' },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: { xs: '1rem', md: '2rem' },
+              borderRadius: '10px',
               opacity: 0,
               animation: showButtons
                 ? `${fadeIn} 1s forwards, ${pulse} 3s 1s forwards`
-                : "none",
+                : 'none',
             }}
           >
             <MovieOutlined sx={{ fontSize: { xs: 90, md: 80 }, mb: 1 }} />
@@ -114,27 +114,27 @@ const HomePage = () => {
           <Button
             id="seriesBtnId"
             variant="contained"
-            onClick={() => navigate("/series")}
+            onClick={() => navigate('/series')}
             sx={{
-              backgroundColor: "#e50914",
-              color: "white",
-              margin: { xs: "10px 0", md: "40px" },
-              "&:hover": {
-                backgroundColor: "#b20710",
+              backgroundColor: '#e50914',
+              color: 'white',
+              margin: { xs: '10px 0', md: '40px' },
+              '&:hover': {
+                backgroundColor: '#b20710',
                 animation: `${hoverFadeIn} 0.3s forwards`,
               },
-              width: { xs: "160%", md: "200px" },
-              height: { xs: "180px", md: "200px" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: { xs: "1rem", md: "2rem" },
-              borderRadius: "10px",
+              width: { xs: '160%', md: '200px' },
+              height: { xs: '180px', md: '200px' },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: { xs: '1rem', md: '2rem' },
+              borderRadius: '10px',
               opacity: 0,
               animation: showButtons
                 ? `${fadeIn} 1s forwards, ${pulse} 3s 1s forwards`
-                : "none",
+                : 'none',
             }}
           >
             <TvOutlined sx={{ fontSize: { xs: 80, md: 80 }, mb: 1 }} />

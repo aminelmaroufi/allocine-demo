@@ -1,22 +1,21 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Typography, Container, Box, Button, Grid2 } from "@mui/material";
-import Item from "../../components/Media/Item";
-import Filter from "../../components/Filter/Filter";
-import TotalCount from "../../components/Filter/TotalCount";
-import MovieDetailsModal from "./MovieDetailsModal";
-import { getMovies } from "../../redux/actions";
-import { RootState } from "../../redux/reducers";
-import { IFilter, IMovie } from "../../models";
-import { hoverFadeIn } from "../../styles/animation";
-import { resetMovies } from "../../redux/actions/movies";
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Typography, Container, Box, Button, Grid2 } from '@mui/material';
+import Item from 'src/components/Media/Item';
+import Filter from 'src/components/Filter/Filter';
+import TotalCount from 'src/components/Filter/TotalCount';
+import MovieDetailsModal from './MovieDetailsModal';
+import { getMovies, resetMovies } from 'src/redux/actions';
+import { RootState } from 'src/redux/reducers';
+import { IFilter, IMovie } from 'src/models';
+import { hoverFadeIn } from 'src/styles/animation';
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
   const { movies, pages, total } = useSelector(
     (state: RootState) => state.movieReducer
   );
-  const [filter, setFilter] = useState("popular");
+  const [filter, setFilter] = useState('popular');
   const [page, setPage] = useState(1);
   const [selectedMovie, setSelectedMovie] = useState<IMovie | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,10 +23,10 @@ const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(resetMovies());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    console.log("useEffect called in MoviesPage");
+    console.log('useEffect called in MoviesPage');
     // Determine if the filter has changed, and set newFilter accordingly
     const newFilter = filter !== previousFilter.current;
     const params: IFilter = {
@@ -60,11 +59,11 @@ const MoviesPage = () => {
     <Container>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           mb: 2,
-          marginTop: "40px",
+          marginTop: '40px',
         }}
       >
         <Typography
@@ -73,20 +72,20 @@ const MoviesPage = () => {
           color="primary"
           gutterBottom
           cy-data="chart-title"
-          fontSize={{ xs: "30px", lg: "40px" }}
-          sx={{ fontWeight: "bold" }}
+          fontSize={{ xs: '30px', lg: '40px' }}
+          sx={{ fontWeight: 'bold' }}
         >
-          Movies {">"} {filter.replace(/_/g, " ").toUpperCase()}
+          Movies {'>'} {filter.replace(/_/g, ' ').toUpperCase()}
         </Typography>
       </Box>
 
       {movies.length > 0 && (
         <Box
           sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
             mb: 2,
           }}
         >
@@ -102,7 +101,7 @@ const MoviesPage = () => {
               size={[6, 3, 3, 2.4]}
               key={index}
               onClick={() => handleMovieClick(movie)}
-              sx={{ cursor: "pointer" }}
+              sx={{ cursor: 'pointer' }}
             >
               <Item item={movie} />
             </Grid2>
@@ -112,27 +111,27 @@ const MoviesPage = () => {
         <Typography
           variant="body1"
           color="textSecondary"
-          sx={{ textAlign: "center", mt: 2 }}
+          sx={{ textAlign: 'center', mt: 2 }}
         >
           No movies available.
         </Typography>
       )}
 
       {movies.length > 0 && movies.length < total && (
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
           <Button
             variant="contained"
             onClick={handleLoadMore}
             sx={{
-              backgroundColor: "#e50914",
-              "&:hover": {
-                backgroundColor: "#b20710",
+              backgroundColor: '#e50914',
+              '&:hover': {
+                backgroundColor: '#b20710',
                 animation: `${hoverFadeIn} 0.3s forwards`,
               },
-              borderRadius: "20px",
-              padding: "10px 20px",
-              fontWeight: "bold",
-              width: { xs: "80%", md: "auto" }, // Adjusted width for mobile
+              borderRadius: '20px',
+              padding: '10px 20px',
+              fontWeight: 'bold',
+              width: { xs: '80%', md: 'auto' }, // Adjusted width for mobile
             }}
           >
             Load More

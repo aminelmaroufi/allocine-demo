@@ -1,9 +1,9 @@
-import ActionTypes from "../../utils/actionTypes";
-import { defaultActions, DefaultState } from "../../types";
+import ActionTypes from 'src/utils/actionTypes';
+import { defaultActions, DefaultState } from 'src/types';
 
 const initialState: DefaultState = {
   fetching: false,
-  message: "",
+  message: '',
   error: false,
   success: false,
 };
@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action: defaultActions) {
         fetching: true,
         success: false,
         error: false,
-        message: "",
+        message: '',
       };
     case ActionTypes.API_CALL_SUCCESS:
       return {

@@ -1,6 +1,6 @@
-import { API_KEY } from "../config";
-import { IFilter } from "../models";
-import adapter from "../utils/adapter";
+import { API_KEY } from 'src/config';
+import { IFilter } from 'src/models';
+import adapter from 'src/utils/adapter';
 
 export let getSeries = (params: IFilter) => {
   return adapter
@@ -8,12 +8,12 @@ export let getSeries = (params: IFilter) => {
       params: {
         api_key: API_KEY,
         page: params.page,
-        language: "en-US",
+        language: 'en-US',
       },
     })
     .catch((err) => {
       let error: any;
-      if (typeof err === "string") {
+      if (typeof err === 'string') {
         error.message = err;
       } else {
         error = err.response.data.message

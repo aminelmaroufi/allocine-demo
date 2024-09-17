@@ -1,20 +1,20 @@
-import ActionTypes from "../../utils/actionTypes";
-import { serieActions, SerieState } from "../../types";
-import { ISerie } from "../../models";
+import ActionTypes from 'src/utils/actionTypes';
+import { serieActions, SerieState } from 'src/types';
+import { ISerie } from 'src/models';
 
 export const emptySerie: ISerie = {
   adult: false,
-  backdrop_path: "",
+  backdrop_path: '',
   genre_ids: [],
   id: 0,
   origin_country: [],
-  original_language: "",
-  original_name: "",
-  overview: "",
+  original_language: '',
+  original_name: '',
+  overview: '',
   popularity: 0,
-  poster_path: "",
-  first_air_date: "",
-  name: "",
+  poster_path: '',
+  first_air_date: '',
+  name: '',
   vote_average: 0,
   vote_count: 0,
 };

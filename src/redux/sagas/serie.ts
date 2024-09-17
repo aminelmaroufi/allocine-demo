@@ -1,8 +1,8 @@
 // movieSaga.ts
-import { call, put, all, takeLatest } from "redux-saga/effects";
-import ActionTypes from "../../utils/actionTypes";
-import { getSeries } from "../../api";
-import { AxiosResponse } from "axios";
+import { call, put, all, takeLatest } from 'redux-saga/effects';
+import ActionTypes from 'src/utils/actionTypes';
+import { getSeries } from 'src/api';
+import { AxiosResponse } from 'axios';
 
 function* fetchSeriesSaga(action: any) {
   try {
@@ -33,7 +33,7 @@ function* fetchSeriesSaga(action: any) {
     yield put({
       type: ActionTypes.API_CALL_FAILURE,
       payload: {
-        message: typeof err === "string" ? err : err.message,
+        message: typeof err === 'string' ? err : err.message,
       },
     });
   }

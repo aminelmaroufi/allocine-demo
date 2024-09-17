@@ -1,2 +1,2 @@
-export { getMovies } from "./movie";
-export { getSeries } from "./serie";
+export { getMovies } from './movie';
+export { getSeries } from './serie';

@@ -1,9 +1,9 @@
-import reducer, { emptyMovie } from "../movie";
-import ActionTypes from "../../../utils/actionTypes";
-import { movieActions, MovieState } from "../../../types";
-import { IMovie } from "../../../models";
+import reducer, { emptyMovie } from '../movie';
+import ActionTypes from '../../../utils/actionTypes';
+import { movieActions, MovieState } from 'src/types';
+import { IMovie } from 'src/models';
 
-describe("movie reducer", () => {
+describe('movie reducer', () => {
   const initialState: MovieState = {
     movies: [],
     movie: emptyMovie,
@@ -13,17 +13,17 @@ describe("movie reducer", () => {
     limit: 10,
   };
 
-  it("should return the initial state", () => {
+  it('should return the initial state', () => {
     expect(reducer(undefined, {} as movieActions)).toEqual(initialState);
   });
 
-  it("should handle GET_MOVIES_SUCCESS", () => {
+  it('should handle GET_MOVIES_SUCCESS', () => {
     const action: movieActions = {
       type: ActionTypes.GET_MOVIES_SUCCESS,
       payload: {
         movies: [
-          { ...emptyMovie, id: 1, title: "Movie 1" },
-          { ...emptyMovie, id: 2, title: "Movie 2" },
+          { ...emptyMovie, id: 1, title: 'Movie 1' },
+          { ...emptyMovie, id: 2, title: 'Movie 2' },
         ],
         total: 2,
         pages: 1,
@@ -33,8 +33,8 @@ describe("movie reducer", () => {
     const expectedState: MovieState = {
       ...initialState,
       movies: [
-        { ...emptyMovie, id: 1, title: "Movie 1" },
-        { ...emptyMovie, id: 2, title: "Movie 2" },
+        { ...emptyMovie, id: 1, title: 'Movie 1' },
+        { ...emptyMovie, id: 2, title: 'Movie 2' },
       ],
       total: 2,
       pages: 1,
@@ -43,11 +43,11 @@ describe("movie reducer", () => {
     expect(reducer(initialState, action)).toEqual(expectedState);
   });
 
-  it("should handle SELECT_MOVIE", () => {
+  it('should handle SELECT_MOVIE', () => {
     const selectedMovie: IMovie = {
       ...emptyMovie,
       id: 1,
-      title: "Selected Movie",
+      title: 'Selected Movie',
     };
     const action: movieActions = {
       type: ActionTypes.SELECT_MOVIE,
@@ -62,7 +62,7 @@ describe("movie reducer", () => {
     expect(reducer(initialState, action)).toEqual(expectedState);
   });
 
-  it("should handle RESET_COLLECTION", () => {
+  it('should handle RESET_COLLECTION', () => {
     const action: movieActions = {
       type: ActionTypes.RESET_COLLECTION,
     };

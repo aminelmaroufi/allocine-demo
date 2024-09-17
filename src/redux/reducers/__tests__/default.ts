@@ -1,20 +1,20 @@
-import home from "../default";
-import ActionTypes from "../../../utils/actionTypes";
-import { defaultActions, DefaultState } from "../../../types";
+import home from '../default';
+import ActionTypes from 'src/utils/actionTypes';
+import { defaultActions, DefaultState } from 'src/types';
 
-describe("default reducer", () => {
+describe('default reducer', () => {
   const initialState: DefaultState = {
     fetching: false,
-    message: "",
+    message: '',
     error: false,
     success: false,
   };
 
-  it("should return the initial state", () => {
+  it('should return the initial state', () => {
     expect(home(undefined, {} as defaultActions)).toEqual(initialState);
   });
 
-  it("should handle API_CALL_REQUEST", () => {
+  it('should handle API_CALL_REQUEST', () => {
     const action: any = {
       type: ActionTypes.API_CALL_REQUEST,
     };
@@ -23,12 +23,12 @@ describe("default reducer", () => {
       fetching: true,
       success: false,
       error: false,
-      message: "",
+      message: '',
     };
     expect(home(initialState, action)).toEqual(expectedState);
   });
 
-  it("should handle API_CALL_SUCCESS", () => {
+  it('should handle API_CALL_SUCCESS', () => {
     const action: any = {
       type: ActionTypes.API_CALL_SUCCESS,
     };
@@ -40,34 +40,34 @@ describe("default reducer", () => {
     expect(home(initialState, action)).toEqual(expectedState);
   });
 
-  it("should handle API_CALL_FAILURE", () => {
+  it('should handle API_CALL_FAILURE', () => {
     const action: any = {
       type: ActionTypes.API_CALL_FAILURE,
       payload: {
-        message: "Error occurred",
+        message: 'Error occurred',
       },
     };
     const expectedState: DefaultState = {
       ...initialState,
       fetching: false,
       error: true,
-      message: "Error occurred",
+      message: 'Error occurred',
     };
     expect(home(initialState, action)).toEqual(expectedState);
   });
 
-  it("should handle SUCCESS_OPERATION", () => {
+  it('should handle SUCCESS_OPERATION', () => {
     const action: any = {
       type: ActionTypes.SUCCESS_OPERATION,
       payload: {
-        message: "Operation successful",
+        message: 'Operation successful',
       },
     };
     const expectedState: DefaultState = {
       ...initialState,
       fetching: false,
       success: true,
-      message: "Operation successful",
+      message: 'Operation successful',
     };
     expect(home(initialState, action)).toEqual(expectedState);
   });

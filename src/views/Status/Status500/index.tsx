@@ -1,24 +1,11 @@
-import { useState } from "react";
-import {
-  Box,
-  Typography,
-  Hidden,
-  Container,
-  Button,
-  Grid,
-} from "@mui/material";
-import { Helmet } from "react-helmet-async";
-import RefreshTwoToneIcon from "@mui/icons-material/RefreshTwoTone";
-import LoadingButton from "@mui/lab/LoadingButton";
-import { styled } from "@mui/material/styles";
-import { browserHistory } from "../../../redux/reducers/history";
-import { useNavigate } from "react-router-dom";
-
-const GridWrapper = styled(Grid)(
-  ({ theme }) => `
-    background: ${theme.colors.gradients.black1};
-`
-);
+import { useState } from 'react';
+import { Box, Typography, Container, Button, Grid } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
+import RefreshTwoToneIcon from '@mui/icons-material/RefreshTwoTone';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { styled } from '@mui/material/styles';
+import { browserHistory } from '../../../redux/reducers/history';
+import { useNavigate } from 'react-router-dom';
 
 const MainContent = styled(Box)(
   () => `
@@ -88,7 +75,7 @@ function Status500() {
                   Refresh view
                 </LoadingButton>
                 <Button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate('/')}
                   variant="contained"
                   sx={{ ml: 1 }}
                 >

@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, Box } from "@mui/material";
+import React from 'react';
+import { Typography, Box } from '@mui/material';
 
 interface TotalCountProps {
   total: number;
@@ -8,7 +8,7 @@ interface TotalCountProps {
 
 const TotalCount: React.FC<TotalCountProps> = ({ total, pages }) => {
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <Typography variant="body1" color="textSecondary">
         Total: {total} of {pages}
       </Typography>

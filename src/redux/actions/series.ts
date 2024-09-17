@@ -1,5 +1,5 @@
-import { IFilter } from "../../models";
-import ActionTypes from "../../utils/actionTypes";
+import { IFilter } from 'src/models';
+import ActionTypes from 'src/utils/actionTypes';
 
 // Get series list
 export const getSeries = (params: IFilter) => ({

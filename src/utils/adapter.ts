@@ -1,13 +1,13 @@
-import axios from "axios";
-import { baseURL } from "../config";
+import axios from 'axios';
+import { baseURL } from 'src/config';
 
 const adapter = axios.create({
   baseURL,
   withCredentials: false,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY,
   },
 });
 

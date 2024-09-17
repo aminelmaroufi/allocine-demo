@@ -1,5 +1,5 @@
-import actionTypes from "../utils/actionTypes";
-import { IMovie } from "../models";
+import actionTypes from 'src/utils/actionTypes';
+import { IMovie } from 'src/models';
 
 export interface MovieState {
   movies: Array<IMovie>;

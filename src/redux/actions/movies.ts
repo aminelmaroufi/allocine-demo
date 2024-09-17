@@ -1,5 +1,5 @@
-import { IFilter } from "../../models";
-import ActionTypes from "../../utils/actionTypes";
+import { IFilter } from 'src/models';
+import ActionTypes from 'src/utils/actionTypes';
 
 // Get movies list
 export const getMovies = (params: IFilter) => ({

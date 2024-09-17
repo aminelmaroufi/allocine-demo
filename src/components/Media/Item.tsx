@@ -1,22 +1,22 @@
 // MediaItem.tsx
-import React from "react";
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
-import { IMAGE_BASE_URL } from "../../config";
-import { IMediaItem } from "../../models";
+import React from 'react';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { IMAGE_BASE_URL } from 'src/config';
+import { IMediaItem } from 'src/models';
 
 const Item: React.FC<{ item: IMediaItem }> = ({ item }) => {
   return (
     <Card
       sx={{
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.05)",
-          cursor: "pointer",
+        transition: 'transform 0.3s ease-in-out',
+        '&:hover': {
+          transform: 'scale(1.05)',
+          cursor: 'pointer',
         },
-        "&:focus": {
-          outline: "none",
-          transform: "scale(1.05)",
-          cursor: "pointer",
+        '&:focus': {
+          outline: 'none',
+          transform: 'scale(1.05)',
+          cursor: 'pointer',
         },
       }}
     >
@@ -33,9 +33,9 @@ const Item: React.FC<{ item: IMediaItem }> = ({ item }) => {
           variant="h6"
           component="div"
           sx={{
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: { xs: "1rem", md: "1.25rem" }, // Adjusted font size for mobile devices
+            textAlign: 'center',
+            fontWeight: 'bold',
+            fontSize: { xs: '1rem', md: '1.25rem' }, // Adjusted font size for mobile devices
           }}
         >
           {item.title || item.name}

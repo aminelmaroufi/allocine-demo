@@ -1,22 +1,22 @@
 // SeriesPage.tsx
-import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Typography, Container, Box, Button, Grid2 } from "@mui/material";
-import Item from "../../components/Media/Item";
-import Filter from "../../components/Filter/Filter";
-import TotalCount from "../../components/Filter/TotalCount";
-import { getSeries } from "../../redux/actions";
-import { RootState } from "../../redux/reducers";
-import { IFilter, ISerie } from "../../models";
-import { hoverFadeIn } from "../../styles/animation";
-import SerieDetailsModal from "./SerieDetailsModal";
+import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Typography, Container, Box, Button, Grid2 } from '@mui/material';
+import Item from 'src/components/Media/Item';
+import Filter from 'src/components/Filter/Filter';
+import TotalCount from 'src/components/Filter/TotalCount';
+import { getSeries } from 'src/redux/actions';
+import { RootState } from 'src/redux/reducers';
+import { IFilter, ISerie } from 'src/models';
+import { hoverFadeIn } from 'src/styles/animation';
+import SerieDetailsModal from './SerieDetailsModal';
 
 const SeriesPage = () => {
   const dispatch = useDispatch();
   const { series, pages, total } = useSelector(
     (state: RootState) => state.serieReducer
   );
-  const [filter, setFilter] = useState("popular");
+  const [filter, setFilter] = useState('popular');
   const [page, setPage] = useState(1);
   const [selectedSerie, setSelectedSerie] = useState<ISerie | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -54,11 +54,11 @@ const SeriesPage = () => {
     <Container>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           mb: 2,
-          marginTop: "40px",
+          marginTop: '40px',
         }}
       >
         <Typography
@@ -67,19 +67,19 @@ const SeriesPage = () => {
           color="primary"
           gutterBottom
           cy-data="chart-title"
-          fontSize={{ xs: "30px", lg: "40px" }}
-          sx={{ fontWeight: "bold" }}
+          fontSize={{ xs: '30px', lg: '40px' }}
+          sx={{ fontWeight: 'bold' }}
         >
-          Series {">"} {filter.replace(/_/g, " ").toUpperCase()}
+          Series {'>'} {filter.replace(/_/g, ' ').toUpperCase()}
         </Typography>
       </Box>
       {series.length > 0 && (
         <Box
           sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
             mb: 2,
           }}
         >
@@ -94,7 +94,7 @@ const SeriesPage = () => {
               size={[6, 3, 3, 2.4]}
               key={index}
               onClick={() => handleSerieClick(serie)}
-              sx={{ cursor: "pointer" }}
+              sx={{ cursor: 'pointer' }}
             >
               <Item item={serie} />
             </Grid2>
@@ -104,26 +104,26 @@ const SeriesPage = () => {
         <Typography
           variant="body1"
           color="textSecondary"
-          sx={{ textAlign: "center", mt: 2 }}
+          sx={{ textAlign: 'center', mt: 2 }}
         >
           No Series available.
         </Typography>
       )}
       {series.length > 0 && series.length < total && (
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
           <Button
             variant="contained"
             onClick={handleLoadMore}
             sx={{
-              backgroundColor: "#e50914",
-              "&:hover": {
-                backgroundColor: "#b20710",
+              backgroundColor: '#e50914',
+              '&:hover': {
+                backgroundColor: '#b20710',
                 animation: `${hoverFadeIn} 0.3s forwards`,
               },
-              borderRadius: "20px",
-              padding: "10px 20px",
-              fontWeight: "bold",
-              width: { xs: "80%", md: "auto" },
+              borderRadius: '20px',
+              padding: '10px 20px',
+              fontWeight: 'bold',
+              width: { xs: '80%', md: 'auto' },
             }}
           >
             Load More

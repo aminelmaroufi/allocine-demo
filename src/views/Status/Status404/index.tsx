@@ -1,15 +1,8 @@
-import {
-  Box,
-  Card,
-  Typography,
-  Container,
-  Button,
-  OutlinedInput,
-} from "@mui/material";
-import { Helmet } from "react-helmet-async";
+import { Box, Card, Typography, Container, Button } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 
-import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const MainContent = styled(Box)(
   ({ theme }) => `
@@ -20,18 +13,6 @@ const MainContent = styled(Box)(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-`
-);
-
-const OutlinedInputWrapper = styled(OutlinedInput)(
-  ({ theme }) => `
-    background-color: ${theme.colors.alpha.white[100]};
-`
-);
-
-const ButtonSearch = styled(Button)(
-  ({ theme }) => `
-    margin-right: -${theme.spacing(1)};
 `
 );
 
@@ -59,8 +40,8 @@ const Status404 = () => {
             </Typography>
           </Box>
           <Container maxWidth="sm">
-            <Card sx={{ textAlign: "center", mt: 3, p: 4 }}>
-              <Button onClick={() => navigate("/")} variant="outlined">
+            <Card sx={{ textAlign: 'center', mt: 3, p: 4 }}>
+              <Button onClick={() => navigate('/')} variant="outlined">
                 Go to homepage
               </Button>
             </Card>

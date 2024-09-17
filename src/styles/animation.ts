@@ -1,4 +1,4 @@
-import { keyframes } from "@mui/system";
+import { keyframes } from '@mui/system';
 
 export const waveAnimation = keyframes`
   0% {

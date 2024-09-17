@@ -1,5 +1,5 @@
-import actionTypes from "../utils/actionTypes";
-import { ISerie } from "../models";
+import actionTypes from 'src/utils/actionTypes';
+import { ISerie } from 'src/models';
 
 export interface SerieState {
   series: Array<ISerie>;
